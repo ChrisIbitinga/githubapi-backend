@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::prefix('v1')->group(function(){
+Route::prefix('v1')->middleware(['ApiKey'])->group(function(){
     Route::get('/', function(){
         return response()->json([
             'status' => 'success',
